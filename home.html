@@ -59,12 +59,12 @@
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
                     <div class="mdl-cell mdl-cell--6-col">
-                        <select id="location">
+                        <select id="location" onchange="showMarker(this.value)">
                             <option value="" disabled selected hidden>Choisissez un lieu:</option>
-                            <option value="1">B17-Salle de sport</option>
-                            <option value="2">B17-Auditorium</option>
-                            <option value="3">B17-Salle de DS</option>
-                            <option value="4">B10-Salle Polyvalente</option>
+                            <option value="0">B17-Salle de sport</option>
+                            <option value="1">B17-Auditorium</option>
+                            <option value="2">B17-Salle de DS</option>
+                            <option value="3">B10-Salle Polyvalente</option>
                         </select>
                     </div>
                     <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
@@ -146,9 +146,6 @@
         var imageUrl = 'https://mariya-rakytyanska.github.io/peach/plan.gif',
             imageBounds = [[46.182433, 6.123352], [46.180894, 6.121339]];
 
-       // var imageUrl = 'https://mariya-rakytyanska.github.io/peach/plan.png',
-       // imageBounds = [[46.180894, 6.121339], [46.182433, 6.123352]];
-
         var map = L.map('map', {
             attributionControl: false,
             //zoomControl: false,
@@ -158,26 +155,23 @@
             //dragging: false,
             //maxBounds: imageBounds
         });
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11'
-        }).addTo(map);
-        
+        // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        // attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        //'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        //'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        //id: 'mapbox/streets-v11'
+        // }).addTo(map);
+
         L.imageOverlay(imageUrl, imageBounds).addTo(map);
- 
- 
-        L.marker([46.182020, 6.122567]).addTo(map); //gymnase 
-        L.marker([46.181800, 6.122119]).addTo(map); //auditorium
-        L.marker([46.181918, 6.122595]).addTo(map); //salle de ds
-        L.marker([46.181297, 6.122451]).addTo(map); //salle polyvalente
+
+
+
 
         function onLocationFound(e) {
             var radius = e.accuracy / 2;
-           L.marker(e.latlng).addTo(map)
-                //.bindPopup("You are within " + radius + " meters from this point").openPopup();
-           // L.circle(e.latlng, radius).addTo(map);
+            L.marker(e.latlng).addTo(map)
+            //.bindPopup("You are within " + radius + " meters from this point").openPopup();
+            // L.circle(e.latlng, radius).addTo(map);
         }
         function onLocationError(e) {
             alert(e.message);
@@ -185,6 +179,30 @@
         map.on('locationfound', onLocationFound);
         map.on('locationerror', onLocationError);
         map.locate({ setView: true, maxZoom: 21 });
+
+        var theMarker = {};
+
+        function showMarker(id) {
+            
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+            if (id == 0) {
+                theMarker = L.marker([46.182020, 6.122567]).addTo(map); //gymnase 
+            }
+            if (id == 1) {
+                theMarker = L.marker([46.181800, 6.122119]).addTo(map); //auditorium
+            }
+            if (id == 2) {
+                theMarker = L.marker([46.181918, 6.122595]).addTo(map); //salle de ds 
+            }
+            if (id == 3) {
+                theMarker = L.marker([46.181297, 6.122451]).addTo(map); //salle polyvalente
+            }
+
+        }
+
+
     </script>
 </body>
 
