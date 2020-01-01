@@ -77,26 +77,27 @@
                     </div>
                     <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
                 </div>
-                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div id="tabs" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                     <div class="mdl-tabs__tab-bar">
-                        <a href="#mt" class="mdl-tabs__tab is-active">MT</a>
-                        <a href="#b10" class="mdl-tabs__tab">B10</a>
-                        <a href="#sousol" class="mdl-tabs__tab">B17 Sous sol</a>
-                        <a href="#rdc" class="mdl-tabs__tab">B17 Rez-de-chaussée</a>
+                        <a id="tab0" href="#mt" class="mdl-tabs__tab is-active">MT</a>
+                        <a id="tab1" href="#b10" class="mdl-tabs__tab">B10</a>
+                        <a id="tab2" href="#sousol" class="mdl-tabs__tab">B17 Sous sol</a>
+                        <a id="tab3" href="#rdc" class="mdl-tabs__tab">B17 Rez-de-chaussée</a>
                     </div>
 
-                    <div class="mdl-tabs__panel is-active" id="mt">
+                    <div class="mdl-tabs__panel is-active" id="plan0">
                         <img id="mt_plan" src="mt.jpeg"></img>
                     </div>
-                    <div class="mdl-tabs__panel" id="b10">
+                    <div class="mdl-tabs__panel" id="plan1">
                         <img id="b10_plan" src="b10.jpeg"></img>
                     </div>
-                    <div class="mdl-tabs__panel" id="rdc">
-                        <img id="rdc" src="b17rezdechaus.jpeg"></img>
-                    </div>
-                    <div class="mdl-tabs__panel" id="sousol">
+                    <div class="mdl-tabs__panel" id="plan2">
                         <img id="sousol" src="b17sousol.jpeg"></img>
                     </div>
+                    <div class="mdl-tabs__panel" id="plan3">
+                        <img id="rdc" src="b17rezdechaus.jpeg"></img>
+                    </div>
+                    
                 </div>
                 <!-- Wide card with share menu button -->
                 <div class="mdl-grid">
@@ -156,11 +157,11 @@
             //maxBounds: imageBounds
         });
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11'
-         }).addTo(map);
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11'
+        }).addTo(map);
 
         L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
@@ -187,17 +188,25 @@
         var coordinates_sd = [46.181918, 6.122595];
         var coordinates_poly = [46.181297, 6.122451];
         var locations = [coordinates_gymnase, coordinates_auditorium, coordinates_sd, coordinates_poly];
-    
+
         function showMarker(id) {
 
             if (theMarker != undefined) {
                 map.removeLayer(theMarker);
             };
-            
-            theMarker = L.marker(locations[id]).addTo(map); 
-            
-           
+
+            theMarker = L.marker(locations[id]).addTo(map);
+
+            var tabs = document.getElementById("tabs");
+            var x = tabs.getElementsByClassName("is-active");
+            while (x.length)
+                x[0].className = x[0].className.replace(/\bis-active\b/g, "");
+            var current_tab = document.getElementById("tab" + id);
+            current_tab.classList.add("is-active");
+            var current_plan = document.getElementById("plan" + id);
+            current_plan.classList.add("is-active");
         }
+
 
 
     </script>
