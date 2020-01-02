@@ -14,30 +14,7 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
-    <style>
-        #location {
-            line-height: 48px;
-            text-align: center;
-            font-weight: 500;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: rgba(0, 0, 0, .54);
-        }
 
-        #map {
-            width: 100%;
-            height: 400px;
-        }
-
-        .image-full-width {
-            width: 100%;
-        }
-
-       
-        .demo-card-wide.mdl-card {
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -132,70 +109,9 @@
 
         </header>
     </div>
+    <link rel="stylesheet" href="css/iil-peach.css">
+    <script src="app/main.js"></script>
     <script>
-        var imageUrl = 'https://mariya-rakytyanska.github.io/peach/plan.gif',
-            imageBounds = [[46.182433, 6.123352], [46.180894, 6.121339]];
-
-        var map = L.map('map', {
-            attributionControl: false,
-            //zoomControl: false,
-            zoom: 17,
-            //minZoom: 17,
-            //maxZoom: 17,
-            //dragging: false,
-            //maxBounds: imageBounds
-        });
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11'
-        }).addTo(map);
-
-        L.imageOverlay(imageUrl, imageBounds).addTo(map);
-
-
-
-
-        function onLocationFound(e) {
-            var radius = e.accuracy / 2;
-            L.marker(e.latlng).addTo(map)
-            //.bindPopup("You are within " + radius + " meters from this point").openPopup();
-            // L.circle(e.latlng, radius).addTo(map);
-        }
-        function onLocationError(e) {
-            alert(e.message);
-        }
-        map.on('locationfound', onLocationFound);
-        map.on('locationerror', onLocationError);
-        map.locate({ setView: true, maxZoom: 21 });
-
-        var theMarker = {};
-
-        var coordinates_gymnase = [46.182020, 6.122567];
-        var coordinates_auditorium = [46.181800, 6.122119];
-        var coordinates_sd = [46.181918, 6.122595];
-        var coordinates_poly = [46.181297, 6.122451];
-        var locations = [coordinates_gymnase, coordinates_auditorium, coordinates_sd, coordinates_poly];
-
-        function showMarker(id) {
-
-            if (theMarker != undefined) {
-                map.removeLayer(theMarker);
-            };
-
-            theMarker = L.marker(locations[id]).addTo(map);
-
-            var tabs = document.getElementById("tabs");
-            var x = tabs.getElementsByClassName("is-active");
-            while (x.length)
-                x[0].className = x[0].className.replace(/\bis-active\b/g, "");
-            var current_tab = document.getElementById("tab" + id);
-            current_tab.classList.add("is-active");
-            var current_plan = document.getElementById("plan" + id);
-            current_plan.classList.add("is-active");
-        }
-
 
 
     </script>
