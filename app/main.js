@@ -37,10 +37,10 @@ map.locate({ setView: true, maxZoom: 21 });
 
 var theMarker = {};
 
-var gymnase = [[46.182020, 6.122567],"tab2"];
-var auditorium = [[46.181800, 6.122119],"tab3"];
-var sd = [[46.181918, 6.122595],"tab1"];
-var poly = [[46.181297, 6.122451],"tab1"];
+var gymnase = [46.182020, 6.122567, "tab2", "plan2"];
+var auditorium = [46.181800, 6.122119, "tab3", "plan3"];
+var sd = [46.181918, 6.122595, "tab3", "plan3"];
+var poly = [46.181297, 6.122451, "tab1", "plan1"];
 var locations = [gymnase, auditorium, sd, poly];
 
 function showMarker(id) {
@@ -49,15 +49,15 @@ function showMarker(id) {
         map.removeLayer(theMarker);
     };
 
-    theMarker = L.marker(locations[id][0],locations[id][1]).addTo(map);
+    theMarker = L.marker([locations[id][0], locations[id][1]]).addTo(map);
 
     var tabs = document.getElementById("tabs");
     var x = tabs.getElementsByClassName("is-active");
     while (x.length)
         x[0].className = x[0].className.replace(/\bis-active\b/g, "");
-    var current_tab = document.getElementById("tab" + id);
+    var current_tab = document.getElementById(locations[id][2]);
     current_tab.classList.add("is-active");
-    var current_plan = document.getElementById("plan" + id);
+    var current_plan = document.getElementById(locations[id][3]);
     current_plan.classList.add("is-active");
 }
 
