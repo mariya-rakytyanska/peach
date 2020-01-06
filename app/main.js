@@ -39,9 +39,14 @@ var theMarker = {};
 
 var gymnase = [46.182020, 6.122567, "tab2", "plan2"];
 var auditorium = [46.181800, 6.122119, "tab3", "plan3"];
-var sd = [46.181918, 6.122595, "tab3", "plan3"];
+var sd = [46.181918, 6.122595, "tab4", "plan4"];
 var poly = [46.181297, 6.122451, "tab1", "plan1"];
-var locations = [gymnase, auditorium, sd, poly];
+
+var sdp = [46.181297, 6.122451, "tab1", "plan1"];
+var reception = [46.1816852, 6.1226379, "tab0", "plan0"];
+var vs = [46.1813739, 6.1226336, "tab1", "plan1"];
+var labo = [46.1813108, 6.1226701, "tab1", "plan1"];
+var locations = [gymnase, auditorium, sd, poly, sdp, reception, vs, labo];
 
 function showMarker(id) {
 
