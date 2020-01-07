@@ -19,14 +19,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 45],
+    
+});
 
 
 function onLocationFound(e) {
     var radius = e.accuracy / 2;
-    L.marker(e.latlng).addTo(map)
+    L.marker((e.latlng), {icon: myIcon}).addTo(map);
     //.bindPopup("You are within " + radius + " meters from this point").openPopup();
     // L.circle(e.latlng, radius).addTo(map);
+    
 }
 function onLocationError(e) {
     alert(e.message);
