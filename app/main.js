@@ -21,7 +21,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
-    iconSize: [30, 45],
+    iconSize: [30, 40],
     
 });
 
