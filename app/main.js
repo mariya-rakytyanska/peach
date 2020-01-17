@@ -19,6 +19,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
+var plan_b10 = L.map('plan_b10', {
+    crs: L.CRS.Simple
+});
+var bounds = [[0,0], [1335,1145]];
+var image = L.imageOverlay('img/b10.jpeg', bounds).addTo(plan_b10);
+plan_b10.fitBounds(bounds);
+var polygon = L.polygon([
+    [945, 875],
+    [1095, 875],
+    [1095, 1060],
+    [945, 1060]
+]).addTo(plan_b10);
+
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
@@ -47,8 +60,8 @@ var auditorium = [46.181800, 6.122119, "tab3", "plan3"];
 var sd = [46.181918, 6.122595, "tab4", "plan4"];
 var poly = [46.181297, 6.122451, "tab1", "plan1"];
 
-var sdp = [46.181297, 6.122451, "tab1", "plan1"];
-var reception = [46.1813739, 6.1226336, "tab1", "plan1"];
+var sdp = [46.181918, 6.122595, "tab4", "plan4"];
+var reception = [46.1813739, 6.1226336, "tab0", "plan0"];
 var vs = [46.181297, 6.122451, "tab1", "plan1"];
 var labo = [46.1813108, 6.1226701, "tab1", "plan1"];
 var locations = [gymnase, auditorium, sd, poly, sdp, reception, vs, labo];
