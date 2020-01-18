@@ -3,13 +3,14 @@ var imageUrl = 'https://mariya-rakytyanska.github.io/peach/img/plan.gif',
 
 var map = L.map('map', {
     attributionControl: false,
-    //zoomControl: false,
-    zoom: 17,
-    //minZoom: 17,
-    //maxZoom: 17,
-    //dragging: false,
-    //maxBounds: imageBounds
+    zoomControl: false,
+    zoom: 17.55,
+    minZoom: 17.55,
+    maxZoom: 17.55,
+    dragging: false,
+    maxBounds: imageBounds
 });
+
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -20,11 +21,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 var plan_b10 = L.map('plan_b10', {
-    crs: L.CRS.Simple
+    crs: L.CRS.Simple,
+
+    zoom:0,
+    zoomControl: false,
+    attributionControl: false,
+    doubleClickZoom : false,
+    dragging: false
+    
 });
 var bounds = [[0,0], [459,548]];
 var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10);
 plan_b10.fitBounds(bounds);
+
 var labo = L.polygon([
     [374,340],
     [424,340],
@@ -35,7 +44,6 @@ labo.bindPopup("<a href='https://www.youtube.com/watch?v=9Dt6J11VH_g'>room</a>")
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
-    
 });
 
 
