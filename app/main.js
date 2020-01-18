@@ -25,13 +25,13 @@ var plan_b10 = L.map('plan_b10', {
 var bounds = [[0,0], [459,548]];
 var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10);
 plan_b10.fitBounds(bounds);
-var polygon = L.polygon([
+var labo = L.polygon([
     [374,340],
     [424,340],
     [424,440],
     [374,440]
 ]).addTo(plan_b10);
-polygon.bindPopup("<a href='https://www.youtube.com/watch?v=9Dt6J11VH_g'>room</a>");
+labo.bindPopup("<a href='https://www.youtube.com/watch?v=9Dt6J11VH_g'>room</a>");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
