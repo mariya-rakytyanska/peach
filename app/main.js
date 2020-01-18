@@ -23,8 +23,10 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 var plan_b10 = L.map('plan_b10', {
     crs: L.CRS.Simple,
 
-    zoom:0,
     zoomControl: false,
+    zoom:0,
+    minZoom: 0,
+    maxZoom: 0,
     attributionControl: false,
     doubleClickZoom : false,
     dragging: false
