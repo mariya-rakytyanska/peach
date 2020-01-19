@@ -42,7 +42,8 @@
             <script type="text/javascript">
                 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                 scanner.addListener('scan', function (content) {
-                    window.alert(content);
+                    //window.alert(content);
+                    window.location.replace(content);
                 });
                 Instascan.Camera.getCameras().then(function (cameras) {
                     if (cameras.length > 0) {
