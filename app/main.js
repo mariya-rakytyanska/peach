@@ -20,21 +20,74 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
+
+
+
 var plan_b10 = L.map('plan_b10', {
     crs: L.CRS.Simple,
-
-    zoomControl: false,
-    zoom:0,
+    attributionControl: false,
     minZoom: 0,
     maxZoom: 0,
-    attributionControl: false,
-    doubleClickZoom : false,
-    dragging: false
-    
+    dragging: false,
+    zoomControl:false
 });
 var bounds = [[0,0], [459,548]];
 var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10);
 plan_b10.fitBounds(bounds);
+
+var plan_mt = L.map('plan_mt', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/mt.jpeg', bounds).addTo(plan_mt);
+plan_mt.fitBounds(bounds);
+
+var plan_b17sousol = L.map('plan_b17sousol', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/b17sousol.jpeg', bounds).addTo(plan_b17sousol);
+plan_b17sousol.fitBounds(bounds);
+
+var plan_b17rdc = L.map('plan_b17rdc', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/b17rezdechaus.jpeg', bounds).addTo(plan_b17rdc);
+plan_b17rdc.fitBounds(bounds);
+
+var plan_b17etage = L.map('plan_b17etage', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/b17etage2.jpeg', bounds).addTo(plan_b17etage);
+plan_b17etage.fitBounds(bounds);
+
+
+
+
+
+
 
 var labo = L.polygon([
     [374,340],
@@ -42,7 +95,7 @@ var labo = L.polygon([
     [424,440],
     [374,440]
 ]).addTo(plan_b10);
-labo.bindPopup("<a href='https://www.youtube.com/watch?v=9Dt6J11VH_g'>room</a>");
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
