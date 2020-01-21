@@ -101,7 +101,85 @@ var myIcon = L.icon({
     iconSize: [30, 40],
 });
 
+var gymnase = L.polygon([
+    [374,340],
+    [424,340],
+    [424,440],
+    [374,440]
+]).addTo(plan_b17sousol);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
 
+var auditorium = L.polygon([
+    [374,340],
+    [424,340],
+    [424,440],
+    [374,440]
+]).addTo(plan_b17rdc);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
+
+var sds = L.polygon([
+    [374,340],
+    [424,340],
+    [424,440],
+    [374,440]
+]).addTo(plan_b17etage);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
+var poly = L.polygon([
+    [200,320],
+    [304,300],
+    [404,300],
+    [324,340]
+]).addTo(plan_b10);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
+var salledp = L.polygon([
+    [45,340],
+    [04,340],
+    [14,440],
+    [154,440]
+]).addTo(plan_b17etage);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
+var reception = L.polygon([
+    [374,340],
+    [424,340],
+    [424,440],
+    [374,440]
+]).addTo(plan_mt);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
+var vs = L.polygon([
+    [74,340],
+    [24,340],
+    [24,440],
+    [74,440]
+]).addTo(plan_b10);
+labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+});
 function onLocationFound(e) {
     var radius = e.accuracy / 2;
     L.marker((e.latlng), {icon: myIcon}).addTo(map);
@@ -123,8 +201,8 @@ var auditorium = [46.181800, 6.122119, "tab3", "plan3"];
 var sd = [46.181918, 6.122595, "tab4", "plan4"];
 var poly = [46.181297, 6.122451, "tab1", "plan1"];
 
-var sdp = [46.181918, 6.122595, "tab4", "plan4"];
-var reception = [46.1813739, 6.1226336, "tab0", "plan0"];
+var sdp = [46.182166, 6.122394, "tab4", "plan4"];
+var reception = [46.181689, 6.122689, "tab0", "plan0"];
 var vs = [46.181297, 6.122451, "tab1", "plan1"];
 var labo = [46.1813108, 6.1226701, "tab1", "plan1"];
 var locations = [gymnase, auditorium, sd, poly, sdp, reception, vs, labo];
