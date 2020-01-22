@@ -4,11 +4,13 @@
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
-    color: rgba(36, 65, 38);
+    color: rgb(155, 155, 155);
 }
 #icon {
-    color: rgba(115,93, 58);
-
+    color: rgba(115, 93, 58);
+}
+#footer {
+    background-color: rgba(36, 65, 38);
 }
 #map {
     width: 100%;
