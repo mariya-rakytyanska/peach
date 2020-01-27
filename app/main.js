@@ -23,7 +23,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 
 
-var plan_b10 = L.map('plan_b10', {
+var plan_b10etage = L.map('plan_b10etage', {
     crs: L.CRS.Simple,
     attributionControl: false,
     minZoom: 0,
@@ -32,10 +32,10 @@ var plan_b10 = L.map('plan_b10', {
     zoomControl:false
 });
 var bounds = [[0,0], [459,548]];
-var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10);
-plan_b10.fitBounds(bounds);
+var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10etage);
+plan_b10etage.fitBounds(bounds);
 
-var plan_mt = L.map('plan_mt', {
+var plan_b10rdc = L.map('plan_b10rdc', {
     crs: L.CRS.Simple,
     attributionControl: false,
     minZoom: 0,
@@ -44,8 +44,20 @@ var plan_mt = L.map('plan_mt', {
     zoomControl:false
 });
 var bounds = [[0,0], [459,548]];
-var image = L.imageOverlay('img/mt.jpeg', bounds).addTo(plan_mt);
-plan_mt.fitBounds(bounds);
+var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10rdc);
+plan_b10rdc.fitBounds(bounds);
+
+var plan_b10sousol = L.map('plan_b10sousol', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/b10.gif', bounds).addTo(plan_b10sousol);
+plan_b10sousol.fitBounds(bounds);
 
 var plan_b17sousol = L.map('plan_b17sousol', {
     crs: L.CRS.Simple,
@@ -83,6 +95,43 @@ var bounds = [[0,0], [459,548]];
 var image = L.imageOverlay('img/b17etage2.jpeg', bounds).addTo(plan_b17etage);
 plan_b17etage.fitBounds(bounds);
 
+var plan_mtetage = L.map('plan_mtetage', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/mt.jpeg', bounds).addTo(plan_mtetage);
+plan_mtetage.fitBounds(bounds);
+
+var plan_mtrdc = L.map('plan_mtrdc', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/mt.jpeg', bounds).addTo(plan_mtrdc);
+plan_mtrdc.fitBounds(bounds);
+
+var plan_mtsousol = L.map('plan_mtsousol', {
+    crs: L.CRS.Simple,
+    attributionControl: false,
+    minZoom: 0,
+    maxZoom: 0,
+    dragging: false,
+    zoomControl:false
+});
+var bounds = [[0,0], [459,548]];
+var image = L.imageOverlay('img/mt.jpeg', bounds).addTo(plan_mtsousol);
+plan_mtsousol.fitBounds(bounds);
+
+
 
 
 
@@ -94,92 +143,112 @@ var labo = L.polygon([
     [424,340],
     [424,440],
     [374,440]
-]).addTo(plan_b10);
+]).addTo(plan_b10etage);
 labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
 });
 
-var gymnase = L.polygon([
-    [374,340],
-    [424,340],
-    [424,440],
-    [374,440]
-]).addTo(plan_b17sousol);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
-var myIcon = L.icon({
-    iconUrl: 'img/localisation.png',
-    iconSize: [30, 40],
-});
 
-var auditorium = L.polygon([
-    [374,340],
-    [424,340],
-    [424,440],
-    [374,440]
-]).addTo(plan_b17rdc);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
-var myIcon = L.icon({
-    iconUrl: 'img/localisation.png',
-    iconSize: [30, 40],
-});
 
-var sds = L.polygon([
-    [374,340],
-    [424,340],
-    [424,440],
-    [374,440]
-]).addTo(plan_b17etage);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+
+var sds = L.circle([80,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b17sousol);
+sds.bindPopup("salle");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
-});
-var poly = L.polygon([
-    [200,320],
-    [304,300],
-    [404,300],
-    [324,340]
-]).addTo(plan_b10);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+});  
+
+var auditorium = L.circle([80,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b17rdc);
+auditorium.bindPopup("salle");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
-});
-var salledp = L.polygon([
-    [45,340],
-    [04,340],
-    [14,440],
-    [154,440]
-]).addTo(plan_b17etage);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+}); 
+
+var salleds = L.circle([80,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b17etage);
+salleds.bindPopup("salle");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
-});
-var reception = L.polygon([
-    [374,340],
-    [424,340],
-    [424,440],
-    [374,440]
-]).addTo(plan_mt);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+}); 
+
+var polyv = L.circle([80,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b10sousol);
+polyv.bindPopup("salle");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
-});
-var vs = L.polygon([
-    [74,340],
-    [24,340],
-    [24,440],
-    [74,440]
-]).addTo(plan_b10);
-labo.bindPopup("<a href='https://www.sanpellegrino.com/intl/en'>room</a>");
+}); 
+
+var salledp = L.circle([90,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b17etage);
+salledp.bindPopup("salle");
 var myIcon = L.icon({
     iconUrl: 'img/localisation.png',
     iconSize: [30, 40],
-});
+}); 
+
+var recept = L.circle([80,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_mtrdc);
+recept.bindPopup("salle");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+}); 
+
+var viesc = L.circle([80,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b10etage);
+viesc.bindPopup("salle");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+}); 
+
+var labor = L.circle([90,80], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10
+}).addTo(plan_b10rdc);
+labor.bindPopup("salle");
+var myIcon = L.icon({
+    iconUrl: 'img/localisation.png',
+    iconSize: [30, 40],
+}); 
+
 function onLocationFound(e) {
     var radius = e.accuracy / 2;
     L.marker((e.latlng), {icon: myIcon}).addTo(map);
